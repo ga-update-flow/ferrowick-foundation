@@ -1,0 +1,19 @@
+{
+  "name": "ferrowick-foundation-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fictional grantmaking foundation website that mirrors a real funder's information architecture, for grant-crawler testing.",
+  "type": "module",
+  "scripts": {
+    "images": "node scripts/art/render-images.mjs",
+    "docs:registry": "node -e \"import('./content/grants.mjs').then(m=>require('fs').writeFileSync('build/documents.json', JSON.stringify({documents:m.documents, biennial:m.biennialReports, focus:m.focusAreas.map(f=>({label:f.label,targets:f.targets})), cycles:m.cycles},null,1)))\"",
+    "docs": "mkdir -p build && npm run docs:registry && python3 scripts/docs/make_docs.py",
+    "build": "node scripts/build.mjs",
+    "build:all": "npm run images && npm run docs && npm run build",
+    "serve": "python3 -m http.server 8080 -d dist",
+    "test": "node scripts/test/check-site.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1"
+  }
+}
