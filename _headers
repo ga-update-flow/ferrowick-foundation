@@ -1,0 +1,15 @@
+/*
+  X-Robots-Tag: noindex, nofollow
+
+/*.pdf
+  X-Robots-Tag: noindex, nofollow
+  Content-Type: application/pdf
+
+/*.doc
+  Content-Type: application/msword
+
+/*.xls
+  Content-Type: application/vnd.ms-excel
+
+/*.xlsm
+  Content-Type: application/vnd.ms-excel.sheet.macroEnabled.12

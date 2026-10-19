@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en" data-base="/ferrowick-foundation"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Applicant Log On - Grant Portal (Demo)</title><link rel="stylesheet" href="/ferrowick-foundation/assets/fonts/fonts.css"><style>
+  body{margin:0;font-family:'Source Sans 3',Arial,sans-serif;background:#eef1f4;color:#2b2f33}header{background:#1d3347;color:#fff;padding:14px 28px;display:flex;justify-content:space-between;align-items:center}header b{font-size:20px;letter-spacing:.3px}.wrap{max-width:980px;margin:36px auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:0 16px}.card{background:#fff;border-radius:6px;padding:26px 30px;box-shadow:0 1px 4px rgba(0,0,0,.1)}h1{font-size:24px;margin:0 0 14px}h2{font-size:19px;margin:0 0 10px}label{display:block;font-weight:600;margin:14px 0 4px}input{width:100%;box-sizing:border-box;padding:10px;border:1px solid #c5cbd2;border-radius:4px;font:inherit}button{margin-top:18px;background:#2a6db0;color:#fff;border:0;padding:10px 22px;border-radius:4px;font:inherit;font-weight:600;cursor:pointer}.note{background:#fff7e0;border:1px solid #e3c46b;padding:12px 16px;border-radius:4px;font-size:15px}.form-notice{display:none;margin-top:16px}.form-notice.show{display:block}a{color:#2a6db0}footer{text-align:center;font-size:12px;color:#777;margin:30px 0}@media(max-width:760px){.wrap{grid-template-columns:1fr}}</style></head><body>
+  <header><b>Grantwell Portal</b><span>The Ferrowick Foundation</span></header>
+  <div class="wrap">
+    <section class="card"><h1>Applicant Log On</h1>
+      <p class="note"><strong>Demonstration portal.</strong> This page imitates the role of a third-party grant portal for a fictional foundation. No accounts exist, and nothing entered here is sent or stored. Do not enter real credentials.</p>
+      <form action="/ferrowick-foundation/contact/demo-form-not-sent/" method="get" data-demo-form="portal-notice">
+        <label for="email">Email Address</label><input id="email" name="email" type="email" required autocomplete="off">
+        <label for="code">Access Code (from your invitation email)</label><input id="code" name="access_code" type="text" required autocomplete="off">
+        <button type="submit">Log On</button>
+        <p><a href="#forgot">Forgot Password?</a></p>
+      </form>
+      <div id="portal-notice" class="note form-notice" role="status">This demonstration portal cannot sign you in. In the fictional process, invited applicants would now see the Applicant Dashboard.</div>
+    </section>
+    <section class="card"><h2>Create a New Account</h2><p>If The Ferrowick Foundation has invited you to apply, use the link and Access Code in your invitation email to create an account. You will enter your organization’s name and tax ID number, the applicant’s contact information, and the name of the organization’s chief executive.</p>
+      <h2 id="forgot">Forgot Password</h2><p>Enter your email address on the log on form and choose “Forgot Password?” to receive reset instructions. (Not available in this demonstration.)</p>
+      <h2>Applicant Dashboard</h2><ul><li>Submit a new application</li><li>Submit a Progress Report or Final Report</li><li>Continue a saved application or report</li><li>View Organization History</li></ul>
+      <p><a href="/ferrowick-foundation/to-apply/">Return to The Ferrowick Foundation website</a></p></section>
+  </div><footer>Independent demonstration website. The Ferrowick Foundation is fictional and is not affiliated with any real foundation.</footer><script src="/ferrowick-foundation/assets/js/site.js" defer></script></body></html>

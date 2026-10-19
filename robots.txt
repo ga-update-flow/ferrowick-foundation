@@ -1,0 +1,6 @@
+# Crawling is allowed so test crawlers can reach every page and document.
+# Indexing is discouraged with <meta name="robots" content="noindex, nofollow"> and X-Robots-Tag headers.
+User-agent: *
+Allow: /
+
+Sitemap: https://hufsa-stack.github.io/ferrowick-foundation/sitemap.xml
