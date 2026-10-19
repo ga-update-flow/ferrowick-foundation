@@ -7,7 +7,8 @@ const BASE = (process.env.BASE || 'http://localhost:8080').replace(/\/$/, '');
 const CHECK_EXTERNAL = process.env.CHECK_EXTERNAL === '1';
 const origin = new URL(BASE).origin;
 const seen = new Map();
-const queue = ['/', '/sitemap.xml', '/robots.txt'];
+const START = new URL(BASE + '/').pathname;
+const queue = [START, START + 'sitemap.xml', START + 'robots.txt'];
 const external = new Set();
 const failures = [];
 const pagesMissingNoindex = [];
@@ -67,7 +68,7 @@ if (CHECK_EXTERNAL) {
   }
 }
 
-const homeHeaders = Object.fromEntries((await fetch(origin + '/')).headers);
+const homeHeaders = Object.fromEntries((await fetch(origin + START)).headers);
 const htmlPages = [...seen.entries()].filter(([u, s]) => s === 200 && !/\.[a-z0-9]{2,4}(\?|$)/i.test(u.split('?')[0])).map(([u]) => u);
 const summary = {
   base: BASE, crawledUrls: seen.size, htmlPages: htmlPages.length, documents: docs.length,

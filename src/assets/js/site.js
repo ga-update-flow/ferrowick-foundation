@@ -32,7 +32,7 @@
     var box = document.getElementById('search-query');
     if (box) box.value = q;
     if (!q.trim()) return;
-    fetch('/search-index.json').then(function (r) { return r.json(); }).then(function (index) {
+    fetch((document.documentElement.getAttribute('data-base') || '') + '/search-index.json').then(function (r) { return r.json(); }).then(function (index) {
       var terms = q.toLowerCase().split(/\s+/).filter(Boolean);
       var hits = index.map(function (p) {
         var hay = (p.title + ' ' + p.text).toLowerCase();

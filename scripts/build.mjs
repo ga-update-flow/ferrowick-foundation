@@ -14,6 +14,14 @@ const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const DIST = path.join(ROOT, 'dist');
 const BASE_URL = (process.env.SITE_URL || 'https://ferrowick-foundation-demo.netlify.app').replace(/\/$/, '');
 const up = (y, m, f) => `/wp-content/uploads/${y}/${m}/${f}`;
+// Optional subpath for hosts such as GitHub Pages project sites (e.g. BASE_PATH=/ferrowick-foundation).
+const BASE_PATH = (process.env.BASE_PATH || '').replace(/\/$/, '');
+const withBase = (s) => !BASE_PATH ? s : s
+  .replace(/(\s(?:href|src|action|poster)=")\/(?!\/)/g, `$1${BASE_PATH}/`)
+  .replace(/(srcset="|, )\/(?!\/)/g, `$1${BASE_PATH}/`)
+  .replace(/url\((['"]?)\/(?!\/)/g, `url($1${BASE_PATH}/`)
+  .replace('<html lang="en-US">', `<html lang="en-US" data-base="${BASE_PATH}">`)
+  .replace('<html lang="en">', `<html lang="en" data-base="${BASE_PATH}">`);
 
 const pages = [];
 const recentPosts = posts.slice(0, 5);
@@ -584,6 +592,7 @@ function externalLedger(m) {
 
 // ---------------------------------------------------------------- write output
 function writeFile(rel, content) {
+  if (/\.(html|css)$/.test(rel)) content = withBase(content);
   const f = path.join(DIST, rel);
   fs.mkdirSync(path.dirname(f), { recursive: true });
   fs.writeFileSync(f, content);
@@ -600,7 +609,9 @@ fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 copyDir(path.join(ROOT, 'src/static'), DIST);
 copyDir(path.join(ROOT, 'src/assets'), path.join(DIST, 'assets'));
-copyDir(path.join(ROOT, 'build/docs'), DIST); // generated documents (see scripts/docs)
+if (BASE_PATH) for (const css of ['assets/css/site.css', 'assets/fonts/fonts.css']) writeFile(css, fs.readFileSync(path.join(DIST, css), 'utf8'));
+writeFile('.nojekyll', '');
+copyDir(path.join(ROOT, 'src/documents'), DIST); // generated documents (see scripts/docs, committed)
 
 const index = [];
 for (const p of pages) {
@@ -609,7 +620,7 @@ for (const p of pages) {
   writeFile(rel, html);
   if (!p.raw && !p.file && !p.path.startsWith('/contact/demo')) {
     const text = p.body.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
-    index.push({ url: p.path, title: p.title || 'Home', text: text.slice(0, 6000) });
+    index.push({ url: BASE_PATH + p.path, title: p.title || 'Home', text: text.slice(0, 6000) });
   }
 }
 writeFile('search-index.json', JSON.stringify(index));

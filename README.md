@@ -24,7 +24,7 @@ documents are original. Contact details use reserved values (`example.org`, `555
 ```bash
 npm install            # only needed for image rendering (playwright)
 npm run images         # render illustrations, portraits, logo, favicon and flyers → src/static/
-npm run docs           # generate PDFs, .doc, .xls/.xlsm and .mp4 → build/docs/
+npm run docs           # generate PDFs, .doc, .xls/.xlsm and .mp4 → src/documents/
 SITE_URL=https://your-host.example npm run build   # assemble the site → dist/
 npm run build:all      # all three steps
 npm run serve          # preview dist/ at http://localhost:8080
@@ -47,7 +47,7 @@ scripts/
   build.mjs         Page templates and site assembly
   lib/layout.mjs    Header, dropdown navigation, title bar, footer, icons
   art/              Illustration engine and image renderer
-  docs/make_docs.py Document generator
+  docs/make_docs.py Document generator (writes src/documents/)
   test/check-site.mjs  Crawler-style verification
 src/assets/         CSS, JS (progressive enhancement only), self-hosted fonts
 src/static/         Generated images, logo and favicons (committed)
@@ -62,25 +62,32 @@ dist/               Build output (deploy this folder)
 * **Documents:** `content/grants.mjs` → `documents` (paths), `scripts/docs/make_docs.py` (contents)
 * **Matching-program details (amount cap, deadline):** `content/news.mjs` → `keystone-matching-program`
 
-## Deployment (Netlify)
+## Deployment (GitHub Pages)
 
-`dist/_headers` sets `X-Robots-Tag: noindex, nofollow` on every path, including PDFs. Each HTML page also
-carries `<meta name="robots" content="noindex, nofollow">`. `robots.txt` allows crawling so test crawlers
-are not blocked.
+`.github/workflows/pages.yml` builds and publishes the site on every push to `main`. It sets `SITE_URL` and
+`BASE_PATH` (for example `/ferrowick-foundation`) automatically. One-time setup: **Settings → Pages →
+Build and deployment → Source: GitHub Actions.**
+
+Generated images (`src/static/`) and documents (`src/documents/`) are committed, so the workflow only needs
+Node. Re-run `npm run images` / `npm run docs` locally only if you change art or document content.
+
+Local preview of a subpath build:
 
 ```bash
-SITE_URL=https://<site-name>.netlify.app npm run build
-npx netlify-cli deploy --dir dist --prod --site <site-id>      # with NETLIFY_AUTH_TOKEN set
+SITE_URL=http://localhost:8080/ferrowick-foundation BASE_PATH=/ferrowick-foundation npm run build
 ```
 
-You can also drag the `dist/` folder onto **Netlify → your site → Deploys**.
+### Search-indexing directives
 
-> Anonymous (`--allow-anonymous`) Netlify deploys are password-protected until they are claimed into an
-> account, and the claim link expires after one hour. A claimed site, or one deployed with your own token,
-> is served publicly with no password.
+* Every HTML page carries `<meta name="robots" content="noindex, nofollow">`.
+* `robots.txt` allows crawling so test crawlers are not blocked. On a GitHub Pages *project* site it sits
+  under the subpath, where search engines do not read it.
+* **GitHub Pages cannot send custom HTTP headers**, so `X-Robots-Tag: noindex` is **not** applied to the PDFs
+  and other documents. The `_headers` file in `dist/` takes effect only on hosts that support it (Netlify,
+  Cloudflare Pages).
 
 These directives discourage indexing, but they do not guarantee that the site will stay out of search
-results. A search engine can still list a URL that it finds linked elsewhere, without crawling the page.
+results. A search engine can still list a URL that it finds linked elsewhere.
 
 ## Mirrored structures worth knowing about (intentional)
 

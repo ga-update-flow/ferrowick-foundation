@@ -31,7 +31,7 @@ from reportlab.platypus import (KeepTogether, PageBreak, Paragraph, SimpleDocTem
 from reportlab.pdfgen import canvas as rl_canvas
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-OUT = os.path.join(ROOT, 'build', 'docs')
+OUT = os.path.join(ROOT, 'src', 'documents')
 REG = json.load(open(os.path.join(ROOT, 'build', 'documents.json')))
 DOCS = REG['documents']
 NAVY = colors.HexColor('#234E70')
