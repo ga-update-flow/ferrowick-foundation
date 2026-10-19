@@ -64,9 +64,11 @@ dist/               Build output (deploy this folder)
 
 ## Deployment (GitHub Pages)
 
-`.github/workflows/pages.yml` builds and publishes the site on every push to `main`. It sets `SITE_URL` and
-`BASE_PATH` (for example `/ferrowick-foundation`) automatically. One-time setup: **Settings → Pages →
-Build and deployment → Source: GitHub Actions.**
+Live site: **https://hufsa-stack.github.io/ferrowick-foundation/**
+
+`.github/workflows/pages.yml` rebuilds the site on every push to `main` and force-pushes the output to the
+`gh-pages` branch, which GitHub Pages serves (Settings → Pages → Deploy from a branch → `gh-pages`, root).
+It sets `SITE_URL` and `BASE_PATH` (for example `/ferrowick-foundation`) automatically.
 
 Generated images (`src/static/`) and documents (`src/documents/`) are committed, so the workflow only needs
 Node. Re-run `npm run images` / `npm run docs` locally only if you change art or document content.

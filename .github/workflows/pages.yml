@@ -1,6 +1,7 @@
-# Builds the static site and publishes it with GitHub Pages.
-# Generated images (src/static) and documents (src/documents) are committed, so only Node is needed here.
-name: Deploy to GitHub Pages
+# Rebuilds the static site on every push to main and publishes it to the gh-pages branch,
+# which GitHub Pages serves (Settings → Pages → Deploy from a branch → gh-pages / root).
+# Generated images (src/static) and documents (src/documents) are committed, so only Node is needed.
+name: Publish site to gh-pages
 
 on:
   push:
@@ -8,39 +9,31 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - id: pages
-        uses: actions/configure-pages@v5
       - name: Build site
         env:
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          BASE_PATH: /${{ github.event.repository.name }}
         run: node scripts/build.mjs
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Push dist to gh-pages
+        run: |
+          cd dist
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish site from ${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

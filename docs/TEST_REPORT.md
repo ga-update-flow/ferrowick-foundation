@@ -54,13 +54,20 @@ Every PDF opened with `pdfplumber`/`pypdfium2`. The Office files were produced a
 | Deadline information only inside images | 2 flyer posts | yes |
 | References to the real foundation | none | 0 |
 
-## 5. Deployment
+## 5. Deployment (GitHub Pages): live crawl
 
-| Check | Result |
+Live URL: **https://hufsa-stack.github.io/ferrowick-foundation/** (repo `hufsa-stack/ferrowick-foundation`, served from `gh-pages`)
+
+| Check (`BASE=https://hufsa-stack.github.io/ferrowick-foundation npm test`) | Result |
 |---|---|
-| Anonymous Netlify deploy (`netlify deploy --allow-anonymous --prod`) | Succeeded: site `heroic-salamander-c01a83.netlify.app` |
-| Public access | **Not yet public.** Every path returns **HTTP 401 "Password Protection"** until the site is claimed into a Netlify account. The claim link expires 2026-10-19 11:07 UTC. |
-| `X-Robots-Tag` on deployed pages and PDFs | Cannot be verified while the site returns 401. Re-run `BASE=https://<site> npm test` after the site is public. |
+| URLs crawled | 209 (92 HTML pages, 30 documents) |
+| Broken links / non-200 | **0** |
+| Pages missing `noindex, nofollow` meta | **0** |
+| Invalid document signatures | **0** |
+| No password or login wall | Confirmed: every page and file returns 200 anonymously |
+| `X-Robots-Tag` header on pages and PDFs | **Not present.** GitHub Pages cannot set custom headers. Only the per-page meta tags apply; PDFs and Office files carry no noindex signal. |
+
+An earlier anonymous Netlify deploy was password-protected (HTTP 401) and was abandoned in favor of GitHub Pages.
 
 ## 6. Existing projects
 
