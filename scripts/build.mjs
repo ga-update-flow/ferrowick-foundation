@@ -175,7 +175,7 @@ page({
     <p>Click ${a('/shared/defining-results/', 'HERE')} for help defining results.</p></div></div>
     <div class="sep"></div>
     <p>Some nonprofits already use this approach with government agencies and other funders. For those who are newer to it, Foundation staff are glad to work with eligible applicants to develop a strong anticipated results statement. Some organizations may also request Foundation support to build their capacity to set, verify and use results to improve performance.</p>
-    <p>Once a grant is approved, grantees report to the Foundation at the midpoint of the grant period (Progress Report) and at the end (Final Report). Grantees describe their progress toward the goals in the project’s anticipated results statement. If those goals are not met, the Foundation wants to know what the grantee learned that will shape future work.</p>
+    <p>Once a grant is approved, grantees report to the Foundation at the end of the grant period (Final Report). Grantees describe their progress toward the goals in the project’s anticipated results statement. If those goals are not met, the Foundation wants to know what the grantee learned that will shape future work.</p>
   </div></section>`,
 });
 page({
@@ -346,7 +346,7 @@ page({
     <p>The following link will take you to the Grant Portal: ${a(site.portalUrl, '<strong>Grant Portal</strong>')}</p>
     <p>After you log in, you will see the Applicant Dashboard.</p>
     <p>From the dashboard you can:</p>
-    <ul><li>Submit a new application</li><li>Submit a Progress Report or a Final Report</li><li>Continue a saved application or a report already in progress</li><li>View the history of applications and reports you have submitted.</li></ul>
+    <ul><li>Submit a new application</li><li>Submit a Final Report</li><li>Continue a saved application or a report already in progress</li><li>View the history of applications and reports you have submitted.</li></ul>
     <p>Please note: by default, the dashboard shows only grants submitted by the applicant who is currently logged in.</p>
     <p>If you are new to an organization, please do not overwrite the previous user’s login information with your own. Instead, contact us to be added as a new user for your organization. If a user leaves an organization while a grant request is active, contact us to add the new contact person, and we will reassign the request and any reports.</p>
     <p><strong>For New Applicants</strong></p>
@@ -378,9 +378,9 @@ page({
     <p>If you forget your password, enter your email address on the login page, click the “Forgot Password” link and follow the instructions. The Foundation does not keep a record of your password. Once logged in, you can change your password by choosing “Edit Profile” from the menu that displays your name in the upper right corner of your dashboard. You can also update your email address, mailing address and phone number there.</p>
     <p>After you log in, you will see the Applicant Dashboard.</p>
     <h4>From the dashboard you can:</h4>
-    <ul><li>Continue a saved application or a report already in progress.</li><li>Submit a Progress Report or a Final Report.</li><li>View the history of applications and reports you have submitted.</li></ul>
+    <ul><li>Continue a saved application or a report already in progress.</li><li>Submit a Final Report.</li><li>View the history of applications and reports you have submitted.</li></ul>
     <p>Please note: by default, the dashboard shows only grants submitted by the applicant who is currently logged in.</p>
-    <h4>To submit a Progress Report or Final Report:</h4>
+    <h4>To submit a Final Report:</h4>
     <p>After logging in to your account, you will see the Applicant Dashboard with your organization’s information and grant history. Scroll down to the section called <strong>Follow-Up Forms</strong>. A blue “Edit” link appears next to the report that is currently due. Click “Edit” to open the report form.</p>
     <p>The report form is pre-filled with information from your application. Please complete all required sections and click “Submit” when you are finished. Timely reports are required for future grant consideration.</p>
     <p>If you need help or clarification, please contact:</p>
@@ -394,7 +394,7 @@ page({
 page({
   path: '/grant-reports/', title: 'Grant Reports', titleBar: 'Grant Reports',
   body: `<section class="section"><div class="container">
-    <p><strong>To submit a Progress Report or a Final Report:</strong></p>
+    <p><strong>To submit a Final Report:</strong></p>
     <p>After logging in to your account, you will see the Applicant Dashboard with your organization’s information and grant history. Scroll down to the section called <strong>Follow-Up Forms</strong>. A blue “Edit” link appears next to the report that is currently due. Click “Edit” to open the report form. The report form is pre-filled with information from your application. Please complete all required sections and click “Submit” when you are finished. Timely reports are required for future grant consideration.</p>
   </div></section>`,
 });
@@ -572,7 +572,7 @@ function portalPage() {
     </section>
     <section class="card"><h2>Create a New Account</h2><p>If The Ferrowick Foundation has invited you to apply, use the link and Access Code in your invitation email to create an account. You will enter your organization’s name and tax ID number, the applicant’s contact information, and the name of the organization’s chief executive.</p>
       <h2 id="forgot">Forgot Password</h2><p>Enter your email address on the log on form and choose “Forgot Password?” to receive reset instructions. (Not available in this demonstration.)</p>
-      <h2>Applicant Dashboard</h2><ul><li>Submit a new application</li><li>Submit a Progress Report or Final Report</li><li>Continue a saved application or report</li><li>View Organization History</li></ul>
+      <h2>Applicant Dashboard</h2><ul><li>Submit a new application</li><li>Submit a Final Report</li><li>Continue a saved application or report</li><li>View Organization History</li></ul>
       <p><a href="/to-apply/">Return to The Ferrowick Foundation website</a></p></section>
   </div><footer>${esc(site.demoNotice)}</footer><script src="/assets/js/site.js" defer></script></body></html>`;
 }
