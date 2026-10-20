@@ -84,19 +84,24 @@ ADMIN = lambda support, grant=('One Time', 'Installment', 'Matching Grant', 'Dir
     q('Notes:', 10000, required=False),
 ]
 
-ORG_INFO = [
-    q('A. What is the purpose of your organization and its primary programs and services?', 3500),
-    q('B. What does your organization do well? Please highlight recent achievements.', 3500),
-    q('C. Apart from funding, what are the greatest challenges facing your organization or the people you serve?', 3500),
+def org_info(long_limit=3500):
+    """Organization questions shared by several applications; `long_limit` applies to A, B, C and F."""
+    return [
+    q('A. What is the purpose of your organization and its primary programs and services?', long_limit),
+    q('B. What does your organization do well? Please highlight recent achievements.', long_limit),
+    q('C. Apart from funding, what are the greatest challenges facing your organization or the people you serve?', long_limit),
     q('D. How does your organization plan for financial sustainability?', 2500),
     q('E. How does your organization address diversity, equity and inclusion?', 2500),
-    q('F. Briefly describe partnerships or collaborations in which your organization takes part:', 3500),
+    q('F. Briefly describe partnerships or collaborations in which your organization takes part:', long_limit),
     q('G. Year established', 10),
     q('H. Number of full-time staff', 25),
     q('I. Number of part-time staff', 25),
     q('J. Total number of people served annually (unduplicated)', 25),
     q('K. Annual organizational budget', 20),
-]
+    ]
+
+
+ORG_INFO = org_info()
 FIN_INFO = [
     q('L. List total actual operating income and expenses for the last three completed fiscal years.', 1000,
       guidance="Use figures from your organization's IRS Form 990. Example: 2023, Income: $850,000, Expense: $830,000, Difference: $20,000"),
@@ -238,17 +243,17 @@ APPLICATIONS = {
 }
 
 PROGRAM_IMPACT = ('Program Impact Application', [
-    Paragraph('I. Organization Information', S['h1']), *ORG_INFO,
+    Paragraph('I. Organization Information', S['h1']), *org_info(long_limit=4500),
     Paragraph('II. Project Description', S['h1']),
     q('A. Project title', 100, guidance='No more than ten words; do not include the organization name.'),
-    q('B. What need or problem will the project address, and for whom?', 3500),
+    q('B. What need or problem will the project address, and for whom?', 4500),
     q('C. Describe the project activities, where they will take place, and the timeline.', 4000),
     q('D. Project start date'), q('E. Project end date'),
     q('F. How many people will the project serve? Describe the core participants.', 1500),
     q('G. Which partners will be involved and what will each contribute?', 2500),
     Paragraph('III. Project Anticipated Results', S['h1']), FOCUS_Q,
-    q('B. Anticipated results statement', 3500, guidance='Of the ___ participants we will serve, we expect ___ will achieve ___ by __/__/__. See the Program Impact Results Worksheet.'),
-    q('C. List the milestones participants will reach and when.', 3500, guidance='See the Program Impact Milestones Workbook.'),
+    q('B. Anticipated results statement', 4500, guidance='Of the ___ participants we will serve, we expect ___ will achieve ___ by __/__/__. See the Program Impact Results Worksheet.'),
+    q('C. List the milestones participants will reach and when.', 4500, guidance='See the Program Impact Milestones Workbook.'),
     q('D. What data will you collect to verify results?', 2500),
     Paragraph('IV. Budget', S['h1']),
     q('A. Total project budget', 20), q('B. Amount requested', 20),
