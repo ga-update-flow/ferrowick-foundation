@@ -72,7 +72,7 @@ page({
   path: '/our-vision-mission-guiding-principles-and-values/', title: 'Our Vision, Mission, Guiding Principles, and Values', titleBar: 'Our Vision, Mission, Guiding Principles, and Values',
   body: `<section class="section"><div class="container"><div class="row">
     <div class="col col-1_2">${img(up(2022, '01', 'make-a-difference.jpg'), 800, 573, 'Community members planning together')}</div>
-    <div class="col col-1_2"><h3>OUR MISSION</h3><p>The mission of The Ferrowick Foundation is to improve the quality of life on Aquidneck Island, especially for residents with the fewest resources, with a focus on education, health, community services, and the arts. We pursue this mission through grantmaking; community leadership; partnership with grantees, other funders and public agencies; and investments that help local nonprofits grow stronger and more effective.</p>
+    <div class="col col-1_2"><h3>OUR MISSION</h3><p>The mission of The Ferrowick Foundation is to improve the quality of life on Aquidneck Island, especially for residents with the fewest resources, with a focus on education, women's health, community services, and the arts. We pursue this mission through grantmaking; community leadership; partnership with grantees, other funders and public agencies; and investments that help local nonprofits grow stronger and more effective.</p>
     <h3>OUR VISION</h3><p>An Aquidneck Island where neighbors of every background are connected, engaged in civic life, and able to reach their full potential—and where those with the fewest resources have what they need to thrive.</p></div>
   </div>
   <div class="sep"></div>
@@ -157,7 +157,7 @@ page({
   body: `${hero(up(2022, '01', 'harbor-festival.jpg'), up(2022, '01', 'harbor-festival-mobile.jpg'), 1903, 500)}
   <section class="section"><div class="container">
     <h2>Our Approach</h2>
-    <p>The Ferrowick Foundation pursues its mission—improving the quality of life on Aquidneck Island, especially for residents with the fewest resources—through work in education, health, community services and the arts. We believe a better quality of life for every islander grows out of committed residents, strong organizations, and people working together toward a shared vision.</p>
+    <p>The Ferrowick Foundation pursues its mission—improving the quality of life on Aquidneck Island, especially for residents with the fewest resources—through work in education, women's health, community services and the arts. We believe a better quality of life for every islander grows out of committed residents, strong organizations, and people working together toward a shared vision.</p>
     <p>We fund nonprofits for direct services, organizational strengthening and, on a limited basis, facilities and equipment. The Foundation also brings stakeholders together around community issues, serves as a thought partner, and sometimes co-funds work with other foundations. We track and share data about the well-being of island residents and stay close to emerging community needs.</p>
     <div class="sep"></div>
     <p class="lead center">Several approaches shape how we work. For those considering a partnership with the Foundation, here is an introduction to each:</p>
@@ -168,7 +168,7 @@ page({
   path: '/our-approach/results-based-approach/', title: 'Results-Based Approach', titleBar: 'Results-Based Approach',
   body: `<section class="section"><div class="container">
     <p>The Foundation’s grantmaking is focused on measurable results for our community rather than on activities or events. Our grants invest in nonprofits that make progress toward one of the target outcomes the Foundation believes will improve the quality of life for islanders, especially those with the fewest resources.</p>
-    <p>Each of our four focus areas—${a('/focus-areas/education/', 'Education')}, ${a('/focus-areas/health/', 'Health')}, ${a('/focus-areas/community-services/', 'Community Services')}, and ${a('/focus-areas/arts-culture/', 'Arts &amp; Culture')}—lists target outcomes. Every funding request must align with one of these target outcomes and include an anticipated results statement with clearly defined, measurable outcomes.</p>
+    <p>Each of our four focus areas—${a('/focus-areas/education/', 'Education')}, ${a('/focus-areas/health/', "Women's Health")}, ${a('/focus-areas/community-services/', 'Community Services')}, and ${a('/focus-areas/arts-culture/', 'Arts &amp; Culture')}—lists target outcomes. Every funding request must align with one of these target outcomes and include an anticipated results statement with clearly defined, measurable outcomes.</p>
     <div class="sep"></div>
     <div class="row"><div class="col col-1_3">${img(up(2022, '01', 'build-day.jpg'), 774, 603, 'Volunteers framing a house')}</div>
     <div class="col col-2_3"><p>The anticipated results statement is central to our review. A strong statement:</p><ul><li>sets ambitious goals,</li><li>includes concrete details about your project,</li><li>and names the information you will use to track progress toward success.</li></ul>

@@ -48,7 +48,7 @@ export const nav = [
   {
     label: 'Focus Areas', href: '/focus-areas/', children: [
       { label: 'Education', href: '/focus-areas/education/' },
-      { label: 'Health', href: '/focus-areas/health/' },
+      { label: "Women's Health", href: '/focus-areas/health/' },
       { label: 'Community Services', href: '/focus-areas/community-services/' },
       { label: 'Arts & Culture', href: '/focus-areas/arts-culture/' },
     ],
@@ -90,7 +90,7 @@ export const footerAboutMenu = [
 
 export const footerFocusMenu = [
   { label: 'Education', href: '/focus-areas/education/' },
-  { label: 'Health', href: '/focus-areas/health/' },
+  { label: "Women's Health", href: '/focus-areas/health/' },
   { label: 'Community Services', href: '/focus-areas/community-services/' },
   { label: 'Arts & Culture', href: '/focus-areas/arts-culture/' },
 ];
