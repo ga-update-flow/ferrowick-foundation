@@ -323,20 +323,9 @@ page({
 });
 const docLi = (d) => `<li>${a(d.href, d.title)}</li>`;
 page({
-  path: '/application-assistance/', title: 'Application Assistance', titleBar: 'Application Assistance',
+  path: '/application-assistance/', title: 'Page not found', titleBar: 'Page Not Found',
   body: `<section class="section"><div class="container">
-    <h2>Resources for Applicants</h2>
-    <h4>Application Questions</h4>
-    <p>To preview the questions in our applications and reports, you may review the sample applications below. These samples are provided as a courtesy, for review only. Please note that The Ferrowick Foundation accepts requests only through our online <strong>${a(site.portalUrl, 'Grants Portal')}</strong>.</p>
-    <ul class="doc-links">${[D.appProgramImpact, D.appOrgStrength, D.appFacilities, D.appRapid, D.appCollective].map(docLi).join('')}</ul>
-    <h4>Results Worksheets</h4>
-    <p>The worksheets below will help you write a clear, measurable and verifiable results statement for your application.</p>
-    ${[D.wsProgramImpact, D.wsOrgStrength, D.wsFacilities].map((d) => `<p class="doc-bold">• ${a(d.href, d.title)}</p>`).join('')}
-    <h4>Milestone Workbooks</h4>
-    <p>The workbooks below will help you define the key progress points you expect your organization or participants to reach, the steps you will take to get there, and when you expect each milestone to be achieved.</p>
-    ${[D.wbProgramImpact, D.wbOrgStrength, D.wbFacilities].map((d) => `<p class="doc-bold" style="padding-left:28px">• ${a(d.href, d.title)}</p>`).join('')}
-    <h4>Collective Impact Guidance</h4>
-    <ul class="doc-links doc-bold">${docLi(D.ciGuidance)}</ul>
+    <p>Page not found. The requested application assistance page could not be found.</p>
   </div></section>`,
 });
 page({
