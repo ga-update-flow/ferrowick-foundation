@@ -8,7 +8,7 @@ export const site = {
   region: 'Aquidneck Island',
   towns: ['Newport', 'Middletown', 'Portsmouth'],
   address: ['75 Lantern Wharf Way, Suite 2C', 'Middletown, RI 02842'],
-  phone: '(401) 555-0147',
+  phone: '(401) 555-0148',
   email: 'info@example.org',
   portalSender: 'administrator@example.net',
   emailDomain: '@example.org',
