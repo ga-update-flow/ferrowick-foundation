@@ -138,6 +138,7 @@ export const grantTypes = [
       'The Foundation invests in programs and projects designed to improve the lives of the people they serve, especially residents with the fewest resources. Funds may be used only for the program or project described in the approved application.',
       'A Foundation grant often covers only part of the cost of the work. The Foundation will consider matching or challenge grants that encourage other funders to participate.',
       'The Ferrowick Foundation cares most about what changes for participants as a result of a grant, rather than about the activities themselves. Each application must align with one of the Foundation’s target outcomes listed under the appropriate {Focus Area} and include an anticipated results statement that describes concrete, measurable {results}.',
+      'Typical request range: $5,000–$40,000. This range reflects typical requests and does not guarantee an award of any particular amount.',
     ],
   },
   {
