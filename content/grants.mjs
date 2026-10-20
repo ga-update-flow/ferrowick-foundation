@@ -1,14 +1,14 @@
 // Grantmaking content: board cycle deadlines, focus areas, grant types and downloadable documents.
 // Update deadlines here; Guidelines and Application Process pages both read from `cycles`.
 
-export const boardMonths = 'February, May, July, and October';
+export const boardMonths = 'February, May, September, and October';
 
 // Like the reference, one listed cycle is already in the past at build time.
 export const cycles = [
   { meeting: 'October 2026', due: 'August 7th' },
   { meeting: 'February 2027', due: 'December 4th' },
   { meeting: 'May 2027', due: 'March 5th' },
-  { meeting: 'July 2027', due: 'May 14th' },
+  { meeting: 'September 2027', due: 'May 14th' },
 ];
 
 const up = (y, m, f) => `/wp-content/uploads/${y}/${m}/${f}`;
