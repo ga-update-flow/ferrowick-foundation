@@ -318,7 +318,7 @@ page({
     <p>Whether a late application can be considered is at the discretion of the Foundation’s small staff, taking into account the number of applications already scheduled for that meeting, the applicant’s history with the Foundation, and any emergency circumstances.</p>
     <p>Applicants whose proposals align with Foundation guidelines will be invited to a call with Foundation staff or will receive a link and access code for our online grant portal.</p>
     <p>During the call, applicants will share more detail about the proposal, be asked to submit any outstanding reports, and receive suggestions for strengthening the proposal or connecting with potential partners.</p>
-    <p>The Foundation makes <strong>one grant per applicant each year</strong>. The grant period is generally one year, and grantees must complete a grant year before submitting a new request.</p>
+    <p>The Foundation makes <strong>one grant per applicant each year</strong>. The grant period is generally one year, with projects of up to 18 months considered when justified. Grantees must complete a grant year before submitting a new request.</p>
   </div></section>`,
 });
 const docLi = (d) => `<li>${a(d.href, d.title)}</li>`;
