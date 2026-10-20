@@ -150,7 +150,7 @@ export const grantTypes = [
   {
     name: 'Facilities & Equipment Grants',
     paras: [
-      'Funding for these grants is very limited at this time. The Foundation recognizes, however, that sometimes an investment in a building, vehicle or major piece of equipment is the best way to make an organization more efficient or effective. Please contact Foundation staff to discuss a potential request before applying. Facilities & Equipment Grants typically help an organization purchase or improve a physical asset; in most cases Foundation funds are paid over more than one fiscal year and contribute to a project budget that includes several sources.',
+      'The Foundation is accepting requests for the next review cycle. The Foundation recognizes that sometimes an investment in a building, vehicle or major piece of equipment is the best way to make an organization more efficient or effective. Please contact Foundation staff to discuss a potential request before applying. Facilities & Equipment Grants typically help an organization purchase or improve a physical asset; in most cases Foundation funds are paid over more than one fiscal year and contribute to a project budget that includes several sources.',
     ],
   },
   {

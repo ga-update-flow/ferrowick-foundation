@@ -158,7 +158,7 @@ page({
   <section class="section"><div class="container">
     <h2>Our Approach</h2>
     <p>The Ferrowick Foundation pursues its mission—improving the quality of life on Aquidneck Island, especially for residents with the fewest resources—through work in education, health, community services and the arts. We believe a better quality of life for every islander grows out of committed residents, strong organizations, and people working together toward a shared vision.</p>
-    <p>We fund nonprofits for direct services, organizational strengthening and, on a limited basis, facilities and equipment. The Foundation also brings stakeholders together around community issues, serves as a thought partner, and sometimes co-funds work with other foundations. We track and share data about the well-being of island residents and stay close to emerging community needs.</p>
+    <p>We fund nonprofits for direct services, organizational strengthening, and facilities and equipment. The Foundation also brings stakeholders together around community issues, serves as a thought partner, and sometimes co-funds work with other foundations. We track and share data about the well-being of island residents and stay close to emerging community needs.</p>
     <div class="sep"></div>
     <p class="lead center">Several approaches shape how we work. For those considering a partnership with the Foundation, here is an introduction to each:</p>
     ${approachBoxes(APPROACHES, 5)}
