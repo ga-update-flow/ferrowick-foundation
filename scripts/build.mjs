@@ -561,6 +561,7 @@ function portalPage() {
   <header><b>Grantwell Portal</b><span>The Ferrowick Foundation</span></header>
   <div class="wrap">
     <section class="card"><h1>Applicant Log On</h1>
+      <p class="note" role="status"><strong>New applications are currently closed.</strong> Please check back for future application opportunities.</p>
       <p class="note"><strong>Demonstration portal.</strong> This page imitates the role of a third-party grant portal for a fictional foundation. No accounts exist, and nothing entered here is sent or stored. Do not enter real credentials.</p>
       <form action="/contact/demo-form-not-sent/" method="get" data-demo-form="portal-notice">
         <label for="email">Email Address</label><input id="email" name="email" type="email" required autocomplete="off">
