@@ -285,7 +285,7 @@ page({
   path: '/guidelines/', title: 'Guidelines', titleBar: 'Guidelines',
   body: `<section class="section"><div class="container">
     <h2>Grant Eligibility</h2>
-    <p>The Foundation supports organizations with current 501(c)(3) status that serve residents of Aquidneck Island (Newport, Middletown and Portsmouth). Prior grantees must have submitted all required reports to be eligible. The Foundation supports organizations with an established track record and demonstrated financial capacity. At the Board of Directors’ discretion, newly established organizations or those using a fiscal sponsor may be considered.</p>
+    <p>The Foundation supports organizations, including public charities, with current 501(c)(3) status that serve residents of Aquidneck Island (Newport, Middletown and Portsmouth). Prior grantees must have submitted all required reports to be eligible. The Foundation supports organizations with an established track record and demonstrated financial capacity. At the Board of Directors’ discretion, newly established organizations or those using a fiscal sponsor may be considered.</p>
     <h4>Timeline</h4>
     <p>The Ferrowick Foundation Board usually meets in ${boardMonths}.</p>
     <p>${cycles.map((c) => `Applications for our <strong>${c.meeting}</strong> meeting are <strong>due by ${c.due}</strong>.`).join('<br>')}</p>
