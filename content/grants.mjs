@@ -7,7 +7,7 @@ export const boardMonths = 'February, May, July, and October';
 export const cycles = [
   { meeting: 'October 2026', due: 'August 7th' },
   { meeting: 'February 2027', due: 'December 4th' },
-  { meeting: 'May 2027', due: 'March 5th' },
+  { meeting: 'May 2027', due: 'March 12th' },
   { meeting: 'July 2027', due: 'May 14th' },
 ];
 
