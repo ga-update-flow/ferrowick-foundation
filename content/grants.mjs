@@ -156,7 +156,7 @@ export const grantTypes = [
   {
     name: 'Rapid Opportunity Grants',
     paras: [
-      'From time to time the Foundation invites requests for projects that could have a significant impact but are limited in duration, cost or scope—for example, an emergency food distribution, a one-time professional training, or a volunteer-led community event. A Rapid Opportunity application must align with one of the Foundation’s target outcomes listed under the appropriate Focus Area. As with all Foundation funding, priority goes to projects that improve the lives of the people served, especially residents with the fewest resources, and funds may be used only for the project described in the approved application. Here too the Foundation is more interested in outcomes than activities, and staff are available to help applicants identify the results they expect.',
+      'The Foundation accepts requests on a rolling basis for projects with significant potential impact that are limited in duration, cost, or scope—for example, an emergency food distribution, a one-time professional training, or a volunteer-led community event. Each request must align with a target outcome in the appropriate Focus Area. As with all Foundation funding, priority goes to projects that improve the lives of the people served, especially residents with the fewest resources, and funds may be used only for the project described in the approved application. Here too the Foundation is more interested in outcomes than activities, and staff are available to help applicants identify the results they expect.',
     ],
   },
 ];
