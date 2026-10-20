@@ -285,7 +285,7 @@ page({
   path: '/guidelines/', title: 'Guidelines', titleBar: 'Guidelines',
   body: `<section class="section"><div class="container">
     <h2>Grant Eligibility</h2>
-    <p>The Foundation supports organizations with current 501(c)(3) status that serve residents of Aquidneck Island (Newport, Middletown and Portsmouth). Prior grantees must have submitted all required reports to be eligible. The Foundation supports organizations with an established track record and demonstrated financial capacity. At the Board of Directors’ discretion, newly established organizations or those using a fiscal sponsor may be considered.</p>
+    <p>The Foundation supports organizations with current 501(c)(3) status that serve residents throughout Newport County, Rhode Island. Prior grantees must have submitted all required reports to be eligible. The Foundation supports organizations with an established track record and demonstrated financial capacity. At the Board of Directors’ discretion, newly established organizations or those using a fiscal sponsor may be considered.</p>
     <h4>Timeline</h4>
     <p>The Ferrowick Foundation Board usually meets in ${boardMonths}.</p>
     <p>${cycles.map((c) => `Applications for our <strong>${c.meeting}</strong> meeting are <strong>due by ${c.due}</strong>.`).join('<br>')}</p>
@@ -494,7 +494,7 @@ page({
       <div class="form-field"><label for="cf-email">Email<span class="req">(Required)</span></label><input id="cf-email" name="email" type="email" required></div>
       <div class="form-field"><fieldset><legend>Preferred contact method<span class="req">(Required)</span></legend><label class="choice"><input type="checkbox" name="contact_method" value="Phone"> Phone</label><label class="choice"><input type="checkbox" name="contact_method" value="Email"> Email</label></fieldset></div>
       <div class="form-field"><label for="cf-org">Organization’s Name<span class="req">(Required)</span></label><input id="cf-org" name="organization" type="text" required></div>
-      <div class="form-field"><fieldset><legend>Are you a 501(c)(3) organization operating on Aquidneck Island?<span class="req">(Required)</span></legend><label class="choice"><input type="radio" name="is_501c3" value="Yes" required> Yes</label><label class="choice"><input type="radio" name="is_501c3" value="No"> No</label></fieldset></div>
+      <div class="form-field"><fieldset><legend>Are you a 501(c)(3) organization operating in Newport County, Rhode Island?<span class="req">(Required)</span></legend><label class="choice"><input type="radio" name="is_501c3" value="Yes" required> Yes</label><label class="choice"><input type="radio" name="is_501c3" value="No"> No</label></fieldset></div>
       <div class="form-field"><label for="cf-desc">Give us a brief description of the project you are seeking support for.<span class="req">(Required)</span></label><textarea id="cf-desc" name="project_description" required></textarea></div>
       <button class="button" type="submit">Submit</button>
     </form>
