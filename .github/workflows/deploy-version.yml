@@ -54,6 +54,8 @@ jobs:
         with:
           ref: ${{ inputs.branch }}
           path: src
+          # Read-only: this job can never push to the selected source branch.
+          persist-credentials: false
       - name: Check out gh-pages
         uses: actions/checkout@v4
         with:
@@ -65,6 +67,13 @@ jobs:
       - name: Build the chosen version
         working-directory: src
         run: node scripts/build.mjs
+      - name: Confirm the build used only the chosen branch, unchanged
+        working-directory: src
+        run: |
+          set -euo pipefail
+          # Built from the branch's current head, with no tracked file added or modified (dist/ is git-ignored).
+          test "$(git rev-parse HEAD)" = "$(git ls-remote origin "refs/heads/$BRANCH" | cut -f1)"
+          test -z "$(git status --porcelain --untracked-files=no)"
       - name: Replace the published site with this build
         run: |
           set -euo pipefail
