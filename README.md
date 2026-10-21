@@ -69,14 +69,14 @@ Live site: **https://hufsa-stack.github.io/ferrowick-foundation/**
 GitHub Pages serves the `gh-pages` branch (Settings → Pages → Deploy from a branch → `gh-pages`, root).
 Pushing to `main` does not change the live site.
 
-To put a version on the live site, use the **Deploy a version** workflow
-(`.github/workflows/deploy-version.yml`):
+To put a version on the live site, use the **Deploy Case** workflow
+(`.github/workflows/deploy-case.yml`):
 
 1. Open the repository's **Actions** tab.
-2. Click **Deploy a version** in the left sidebar.
+2. Click **Deploy Case** in the left sidebar.
 3. Click **Run workflow** and pick a branch from the dropdown (the original site or any of the 20 version branches).
 4. Click the green **Run workflow** button.
-5. Wait for both runs ("Deploy a version" and "pages build and deployment") to show green checks, then open the
+5. Wait for both runs ("Deploy Case" and "pages build and deployment") to show green checks, then open the
    page. Browsers may cache pages for up to 10 minutes, so use a hard refresh if the old version still shows.
 
 The workflow builds the chosen branch (setting `SITE_URL` and `BASE_PATH`, for example `/ferrowick-foundation`,

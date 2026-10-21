@@ -1,8 +1,8 @@
-# "Deploy a version" button: Actions tab → Deploy a version → Run workflow → pick a branch.
+# "Deploy Case" button: Actions tab → Deploy Case → Run workflow → pick a branch.
 # Builds the chosen branch and replaces the entire contents of gh-pages with that build in one normal
 # (non-force) commit, so the live site shows exactly that version and nothing else. GitHub Pages then
 # publishes it through its own "pages build and deployment" run. Pages settings and the URL are untouched.
-name: Deploy a version
+name: Deploy Case
 
 on:
   workflow_dispatch:
@@ -38,7 +38,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: deploy-version
+  group: deploy-case
   cancel-in-progress: false
 
 jobs:
