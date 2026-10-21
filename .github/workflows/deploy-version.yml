@@ -1,0 +1,91 @@
+# "Deploy a version" button: Actions tab → Deploy a version → Run workflow → pick a branch.
+# Builds the chosen branch and replaces the entire contents of gh-pages with that build in one normal
+# (non-force) commit, so the live site shows exactly that version and nothing else. GitHub Pages then
+# publishes it through its own "pages build and deployment" run. Pages settings and the URL are untouched.
+name: Deploy a version
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Version branch to put on the live site
+        type: choice
+        required: true
+        options:
+          - original-main-before-fiscal-sponsorship-update
+          - clean-preview-remove-fiscal-sponsorship
+          - clean-preview-application-portal-process
+          - clean-preview-womens-health-focus-area
+          - application-deadline-august-17-october-2026
+          - board-meeting-july-to-september
+          - eligibility-add-public-charities
+          - contact-number-401-555-0148
+          - application-character-limit-4500
+          - remove-progress-report-criteria
+          - portal-closed-to-new-applications
+          - eligibility-service-area-expansion
+          - prior-grantee-reporting-rule-update
+          - program-impact-award-range-update
+          - facilities-equipment-applications-reopened
+          - rapid-opportunity-application-status
+          - annual-grant-limit-increase
+          - may-2027-deadline-update
+          - grant-period-18-month-option
+          - grant-reports-contact-update
+          - application-assistance-soft-404
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-version
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: ${{ inputs.branch }}
+      SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      BASE_PATH: /${{ github.event.repository.name }}
+    steps:
+      - name: Check out the chosen version
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          path: src
+      - name: Check out gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the chosen version
+        working-directory: src
+        run: node scripts/build.mjs
+      - name: Replace the published site with this build
+        run: |
+          set -euo pipefail
+          test -f src/dist/index.html
+          cd site
+          git rm -rq --ignore-unmatch .
+          cp -a ../src/dist/. .
+          git add -A
+          # The published tree must be an exact copy of the build: same files, same bytes.
+          diff -r --exclude=.git . ../src/dist
+          SHA=$(git -C ../src rev-parse --short HEAD)
+          if git diff --cached --quiet; then
+            echo "gh-pages already holds $BRANCH @ $SHA; nothing to publish." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Deploy $BRANCH @ $SHA (full replacement)"
+          git push origin HEAD:gh-pages
+          {
+            echo "Deployed **$BRANCH** @ \`$SHA\` to gh-pages ($(git ls-files | wc -l) files)."
+            echo
+            echo "Live site (after the \"pages build and deployment\" run finishes): $SITE_URL/"
+          } >> "$GITHUB_STEP_SUMMARY"

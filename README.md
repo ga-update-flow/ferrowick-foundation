@@ -66,9 +66,23 @@ dist/               Build output (deploy this folder)
 
 Live site: **https://hufsa-stack.github.io/ferrowick-foundation/**
 
-`.github/workflows/pages.yml` rebuilds the site on every push to `main` and force-pushes the output to the
-`gh-pages` branch, which GitHub Pages serves (Settings → Pages → Deploy from a branch → `gh-pages`, root).
-It sets `SITE_URL` and `BASE_PATH` (for example `/ferrowick-foundation`) automatically.
+GitHub Pages serves the `gh-pages` branch (Settings → Pages → Deploy from a branch → `gh-pages`, root).
+Pushing to `main` does not change the live site.
+
+To put a version on the live site, use the **Deploy a version** workflow
+(`.github/workflows/deploy-version.yml`):
+
+1. Open the repository's **Actions** tab.
+2. Click **Deploy a version** in the left sidebar.
+3. Click **Run workflow** and pick a branch from the dropdown (the original site or any of the 20 version branches).
+4. Click the green **Run workflow** button.
+5. Wait for both runs ("Deploy a version" and "pages build and deployment") to show green checks, then open the
+   page. Browsers may cache pages for up to 10 minutes, so use a hard refresh if the old version still shows.
+
+The workflow builds the chosen branch (setting `SITE_URL` and `BASE_PATH`, for example `/ferrowick-foundation`,
+automatically) and replaces the entire contents of `gh-pages` with that build in one normal commit: no
+force-push, nothing mixed in from other versions, and Pages settings unchanged. To add a new version branch to
+the dropdown, add its name to the `options` list in the workflow.
 
 Generated images (`src/static/`) and documents (`src/documents/`) are committed, so the workflow only needs
 Node. Re-run `npm run images` / `npm run docs` locally only if you change art or document content.
